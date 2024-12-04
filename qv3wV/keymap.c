@@ -5,6 +5,7 @@
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
+  ST_MACRO_0,
 };
 
 
@@ -27,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_voyager(
     KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_MEDIA_PLAY_PAUSE,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),KC_MS_WH_RIGHT, KC_MS_WH_LEFT,  
     KC_NO,          KC_ESCAPE,      LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_HOME,                                        KC_PAGE_UP,     KC_DELETE,      KC_UP,          KC_BSPC,        KC_NO,          KC_NO,          
-    KC_CAPS,        KC_NO,          KC_NO,          KC_NO,          LALT(LGUI(LCTL(KC_S))),KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_ENTER,       KC_NO,          
+    KC_CAPS,        KC_NO,          KC_NO,          KC_NO,          ST_MACRO_0,     KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_ENTER,       KC_NO,          
     KC_NO,          KC_NO,          TD(DANCE_0),    KC_LEFT_ALT,    TD(DANCE_1),    LGUI(KC_V),                                     KC_NO,          KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_RIGHT_CTRL,  KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_LEFT_SHIFT,  KC_SPACE
   ),
@@ -111,6 +112,11 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case ST_MACRO_0:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_AUDIO_MUTE) SS_DELAY(100) SS_LALT(SS_LCTL(SS_LGUI(SS_TAP(X_S)))));
+    }
+    break;
 
     case RGB_SLD:
       if (record->event.pressed) {
