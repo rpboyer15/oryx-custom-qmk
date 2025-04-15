@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_ASTERISK,                                 KC_GRAVE,       KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        
     KC_NO,          KC_NO,          KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_MINUS,                                    KC_NO,          KC_LPRN,        KC_RPRN,        KC_LCBR,        KC_RCBR,        KC_CIRC,        
-    KC_NO,          KC_NO,          MT(MOD_LCTL, KC_KP_DOT),MT(MOD_LALT, KC_KP_0),MT(MOD_LGUI, KC_KP_EQUAL),KC_KP_PLUS,                                     KC_NO,          MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),KC_RIGHT_CTRL,  KC_NO,          KC_AMPR,        
+    KC_NO,          KC_NO,          MT(MOD_LCTL, KC_KP_0),MT(MOD_LALT, KC_KP_DOT),MT(MOD_LGUI, KC_KP_EQUAL),KC_KP_PLUS,                                     KC_NO,          MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),KC_RIGHT_CTRL,  KC_NO,          KC_AMPR,        
                                                     KC_SPACE,       KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO
   ),
   [3] = LAYOUT_voyager(
