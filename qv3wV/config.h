@@ -11,8 +11,9 @@
 #undef MOUSEKEY_WHEEL_TIME_TO_MAX
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 10
 
-#define SERIAL_NUMBER "qv3wV/EeWXmG"
+#define SERIAL_NUMBER "qv3wV/nlmXz9"
 #define LAYER_STATE_8BIT
+#define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define RGB_MATRIX_STARTUP_SPD 60
 
