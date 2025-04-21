@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),RGB_VAD,        RGB_VAI,        
     KC_NO,          KC_ESCAPE,      LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_HOME,                                        KC_PAGE_UP,     KC_DELETE,      KC_UP,          KC_BSPC,        KC_NO,          KC_NO,          
-    KC_CAPS,        KC_NO,          LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),KC_NO,          KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_NO,          
+    KC_CAPS,        KC_NO,          LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),LCTL(KC_W),     KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          TD(DANCE_0),    KC_LEFT_ALT,    TD(DANCE_1),    LGUI(KC_V),                                     KC_NO,          KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_RIGHT_CTRL,  KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  KC_SPACE
   ),
