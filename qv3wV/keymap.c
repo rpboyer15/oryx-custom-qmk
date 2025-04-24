@@ -8,7 +8,8 @@ const custom_shift_key_t custom_shift_keys[] = {
     {KC_QUOT, KC_UNDS}, // Shift ' is _
     {KC_COMM, KC_QUES}, // Shift , is ?
     {KC_MINS, KC_DQUO}, // Shift - is "
-    {KC_SLSH, KC_LABK}, // Shift / is <
+    {KC_SLSH, KC_RABK}, // Shift / is >
+    {KC_DOT, KC_LABK}, // Shift . is <
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
@@ -124,12 +125,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
+    case MT(MOD_RALT, KC_DOT): // Replace with your Mod-Tap configuration
+      if (record->tap.count && record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
+          tap_code16(KC_LABK);             // Output " " if Shift is held
+        } else {
+          tap_code16(KC_DOT); // Output "." otherwise
+        }
+        return false; // Prevent further processing
+      }
+      break;
+
     case MT(MOD_RCTL, KC_MINUS): // Replace with your Mod-Tap configuration
       if (record->tap.count && record->event.pressed) {
         if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
           tap_code16(KC_DQUO);             // Output "?" if Shift is held
         } else {
           tap_code16(KC_MINUS); // Output "-" otherwise
+        }
+        return false; // Prevent further processing
+      }
+      break;
+
+    case MT(MOD_RCTL | MOD_RALT, KC_SLASH): // Replace with your Mod-Tap configuration
+      if (record->tap.count && record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
+          tap_code16(KC_RABK);             // Output ">" if Shift is held
+        } else {
+          tap_code16(KC_SLASH); // Output "/" otherwise
         }
         return false; // Prevent further processing
       }
