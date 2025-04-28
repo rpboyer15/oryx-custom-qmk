@@ -31,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [2] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
-    KC_NO,          KC_KP_MINUS,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_GRAVE,       KC_LCBR,        KC_RCBR,        KC_EXLM,        KC_AT,          KC_EQUAL,       
+    KC_NO,          KC_KP_MINUS,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_GRAVE,       KC_LCBR,        KC_RCBR,        KC_EXLM,        KC_HASH,        KC_EQUAL,       
     KC_NO,          KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_NO,          KC_LPRN,        KC_RPRN,        KC_CIRC,        KC_DLR,         KC_NO,          
-    KC_NO,          KC_KP_ASTERISK, MT(MOD_LCTL, KC_KP_1),MT(MOD_LALT, KC_KP_2),MT(MOD_LGUI, KC_KP_3),KC_NO,                                          KC_NO,          MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),TD(DANCE_1),    KC_AMPR,        KC_HASH,        
+    KC_NO,          KC_KP_ASTERISK, MT(MOD_LCTL, KC_KP_1),MT(MOD_LALT, KC_KP_2),MT(MOD_LGUI, KC_KP_3),KC_NO,                                          KC_NO,          MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),TD(DANCE_1),    KC_AT,          KC_AMPR,        
                                                     KC_KP_0,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO
   ),
   [3] = LAYOUT_voyager(
