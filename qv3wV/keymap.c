@@ -37,14 +37,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),RGB_VAD,        RGB_VAI,        
     KC_NO,          KC_ESCAPE,      LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_HOME,                                        KC_PAGE_UP,     KC_DELETE,      KC_UP,          KC_BSPC,        KC_NO,          KC_NO,          
-    KC_CAPS,        KC_NO,          LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),KC_NO,          KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_NO,          
+    KC_CAPS,        KC_NO,          LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),KC_NO,          KC_END,                                         KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT, 
     KC_NO,          LGUI(KC_W),     KC_LEFT_CTRL,   KC_LEFT_ALT,    TD(DANCE_0),    LGUI(KC_V),                                     KC_NO,          KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_RIGHT_CTRL,  KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  KC_SPACE
   ),
   [2] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
     KC_NO,          KC_KP_MINUS,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_GRAVE,       KC_PERC,        KC_EXLM,        KC_LBRC,        KC_RBRC,        KC_EQUAL,       
-    KC_NO,          KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_AT,          KC_DLR,         KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_NO,          
+    KC_NO,          KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_AT,          KC_DLR,         KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_TRANSPARENT, 
     KC_NO,          KC_KP_ASTERISK, MT(MOD_LCTL, KC_KP_1),MT(MOD_LALT, KC_KP_2),MT(MOD_LGUI, KC_KP_3),KC_NO,                                          KC_HASH,        TD(DANCE_1),    MT(MOD_RALT, KC_KP_DOT),TD(DANCE_2),    KC_RCBR,        KC_NO,          
                                                     KC_KP_0,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO
   ),
