@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_S)),KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_F4,          KC_F5,          KC_F6,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_4)),KC_TRANSPARENT, KC_NO,          KC_NUM,         KC_NO,          
     KC_TRANSPARENT, KC_NO,          MT(MOD_LCTL, KC_F1),MT(MOD_LALT, KC_F2),MT(MOD_LGUI, KC_F3),KC_NO,                                          KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_ALT,   KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT, 
-                                                    KC_F12,         KC_F11,                                         KC_TRANSPARENT, KC_TRANSPARENT
+                                                    KC_F11,         KC_F12,                                         KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
 
