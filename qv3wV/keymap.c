@@ -151,6 +151,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    case DUAL_FUNC_0:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(LGUI(KC_C));
+        } else {
+          unregister_code16(LGUI(KC_C));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_GUI);
+        } else {
+          unregister_code16(KC_LEFT_GUI);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_1:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_PERC);
+        } else {
+          unregister_code16(KC_PERC);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_GUI);
+        } else {
+          unregister_code16(KC_RIGHT_GUI);
+        }  
+      }  
+      return false;
+
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
