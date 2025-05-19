@@ -1,23 +1,12 @@
 #include QMK_KEYBOARD_H
-#include "features/custom_shift_keys.h"
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
-const custom_shift_key_t custom_shift_keys[] = {
-    {KC_QUOT, KC_UNDS}, // Shift ' is _
-    {KC_COMM, KC_QUES}, // Shift , is ?
-    {KC_MINS, KC_DQUO}, // Shift - is "
-    {KC_SLSH, KC_RABK}, // Shift / is >
-    {KC_DOT, KC_LABK}, // Shift . is <
-	{KC_EQUAL, KC_EQUAL} // Shift = is =
-};
-uint8_t NUM_CUSTOM_SHIFT_KEYS =
-    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
-
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 };
+
 
 
 #define DUAL_FUNC_0 LT(20, KC_F)
@@ -29,14 +18,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,                                           KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_BSLS,        
     KC_COMMA,       KC_N,           KC_R,           KC_T,           KC_S,           KC_G,                                           KC_Y,           KC_H,           KC_A,           KC_E,           KC_I,           KC_ENTER,       
     KC_EQUAL,       KC_Q,           MT(MOD_LCTL, KC_X),MT(MOD_LALT, KC_M),MT(MOD_LGUI, KC_C),KC_V,                                           KC_K,           MT(MOD_RGUI, KC_P),MT(MOD_RALT, KC_DOT),MT(MOD_RCTL, KC_MINUS),KC_SLASH,       KC_SCLN,        
-                                                    MO(1), KC_LEFT_SHIFT,                                          LALT(LGUI(KC_LEFT_CTRL)),LT(2, KC_SPACE)
+                                                    MO(1),          KC_LEFT_SHIFT,                                  LALT(LGUI(KC_LEFT_CTRL)),LT(2, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),RGB_VAD,        RGB_VAI,        
     KC_NO,          KC_ESCAPE,      LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),KC_NO,          KC_NO,                                          KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
     KC_NO,          KC_NO,          LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_NO,                                          KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     KC_NO,          LGUI(KC_W),     KC_LEFT_CTRL,   KC_LEFT_ALT,    DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
-                                                    KC_TRANSPARENT, KC_NO,                                         KC_LEFT_SHIFT,  MO(3)
+                                                    KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  MO(3)
   ),
   [2] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -126,32 +115,7 @@ bool rgb_matrix_indicators_user(void) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_custom_shift_keys(keycode, record)) {
-    return false;
-  }
-
   switch (keycode) {
-    case MT(MOD_RALT, KC_DOT): // Replace with your Mod-Tap configuration
-      if (record->tap.count && record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
-          tap_code16(KC_LABK);             // Output < if Shift is held
-        } else {
-          tap_code16(KC_DOT); // Output "." otherwise
-        }
-        return false; // Prevent further processing
-      }
-      break;
-
-    case MT(MOD_RCTL, KC_MINUS): // Replace with your Mod-Tap configuration
-      if (record->tap.count && record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
-          tap_code16(KC_DQUO);             // Output " if Shift is held
-        } else {
-          tap_code16(KC_MINUS); // Output "-" otherwise
-        }
-        return false; // Prevent further processing
-      }
-      break;
 
     case DUAL_FUNC_0:
       if (record->tap.count > 0) {
