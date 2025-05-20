@@ -129,37 +129,6 @@ bool rgb_matrix_indicators_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
 
-    case DUAL_FUNC_0:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(LGUI(KC_C));
-        } else {
-          unregister_code16(LGUI(KC_C));
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(KC_LEFT_GUI);
-        } else {
-          unregister_code16(KC_LEFT_GUI);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_1:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_PERC);
-        } else {
-          unregister_code16(KC_PERC);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(KC_RIGHT_GUI);
-        } else {
-          unregister_code16(KC_RIGHT_GUI);
-        }  
-      }  
-      return false;
-
     case MT(MOD_RALT, KC_DOT): // Replace with your Mod-Tap configuration
       if (record->tap.count && record->event.pressed) {
         if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
@@ -181,6 +150,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false; // Prevent further processing
       }
       break;
+
+    case DUAL_FUNC_0:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(LGUI(KC_C));
+        } else {
+          unregister_code16(LGUI(KC_C));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_GUI);
+        } else {
+          unregister_code16(KC_LEFT_GUI);
+        }  
+      }  
+      return false;
+
+    case DUAL_FUNC_1:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_PERC);
+        } else {
+          unregister_code16(KC_PERC);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_GUI);
+        } else {
+          unregister_code16(KC_RIGHT_GUI);
+        }  
+      }  
+      return false;
 
     case RGB_SLD:
       if (record->event.pressed) {
