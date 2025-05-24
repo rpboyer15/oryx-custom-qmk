@@ -21,8 +21,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(24, KC_2)
-#define DUAL_FUNC_1 LT(21, KC_3)
+#define DUAL_FUNC_0 LT(25, KC_Y)
+#define DUAL_FUNC_1 LT(27, KC_Q)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),RGB_VAD,        RGB_VAI,        
-    KC_NO,          KC_ESCAPE,      LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),LALT(LGUI(LSFT(KC_B))),LGUI(KC_Z),                                     KC_GRAVE,       KC_LCBR,        KC_RCBR,        KC_EXLM,        KC_HASH,        KC_TRANSPARENT, 
-    KC_NO,          KC_NO,          LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_NO,                                          KC_TILD,        KC_LPRN,        KC_RPRN,        KC_CIRC,        KC_DLR,         KC_TRANSPARENT, 
-    KC_NO,          LGUI(KC_W),     LGUI(KC_X),     KC_LEFT_ALT,    DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),DUAL_FUNC_1,    KC_AMPR,        KC_TRANSPARENT, 
+    KC_NO,          KC_ESCAPE,      LGUI(LSFT(KC_J)),LGUI(LSFT(KC_SPACE)),LALT(LGUI(LSFT(KC_B))),LGUI(KC_Z),                                     KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
+    KC_NO,          KC_NO,          LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_NO,                                          KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    KC_NO,          LGUI(KC_W),     LGUI(KC_X),     KC_LEFT_ALT,    DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  MO(3)
   ),
   [2] = LAYOUT_voyager(
@@ -182,9 +182,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       } else {
         if (record->event.pressed) {
-          register_code16(KC_RIGHT_CTRL);
+          register_code16(KC_RIGHT_GUI);
         } else {
-          unregister_code16(KC_RIGHT_CTRL);
+          unregister_code16(KC_RIGHT_GUI);
         }  
       }  
       return false;
