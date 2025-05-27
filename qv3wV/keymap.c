@@ -21,8 +21,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(32, KC_9)
-#define DUAL_FUNC_1 LT(21, KC_F23)
+#define DUAL_FUNC_0 LT(31, KC_F6)
+#define DUAL_FUNC_1 LT(31, KC_F5)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(1, KC_SPACE):
-            return TAPPING_TERM -50;
+            return TAPPING_TERM -40;
         case LT(2, KC_SPACE):
             return TAPPING_TERM -40;
         default:
