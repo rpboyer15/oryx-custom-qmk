@@ -21,8 +21,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(18, KC_F22)
-#define DUAL_FUNC_1 LT(24, KC_F14)
+#define DUAL_FUNC_0 LT(27, KC_F10)
+#define DUAL_FUNC_1 LT(19, KC_H)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,                                           KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_BSLS,        
     KC_COMMA,       KC_N,           KC_R,           KC_T,           KC_S,           KC_G,                                           KC_Y,           KC_H,           KC_A,           KC_E,           KC_I,           KC_ENTER,       
     KC_EQUAL,       KC_Q,           MT(MOD_LCTL, KC_X),MT(MOD_LALT, KC_M),MT(MOD_LGUI, KC_C),KC_V,                                           KC_K,           MT(MOD_RGUI, KC_P),MT(MOD_RALT, KC_DOT),MT(MOD_RCTL, KC_MINUS),KC_SLASH,       KC_SCLN,        
-                                                    MO(1),          KC_LEFT_SHIFT,                                  LALT(LGUI(KC_LEFT_CTRL)),LT(2, KC_SPACE)
+                                                    LT(1, KC_SPACE),KC_LEFT_SHIFT,                                  LALT(LGUI(KC_LEFT_CTRL)),LT(2, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),RGB_VAD,        RGB_VAI,        
@@ -58,8 +58,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MO(1):
-            return TAPPING_TERM -40;
+        case LT(1, KC_SPACE):
+            return TAPPING_TERM -100;
         case LT(2, KC_SPACE):
             return TAPPING_TERM -40;
         default:
