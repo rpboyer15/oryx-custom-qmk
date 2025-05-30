@@ -61,7 +61,16 @@ jobs:
         run: |
           git fetch origin main
           git checkout -B main origin/main
-          git merge -Xignore-all-space oryx
+          if ! git merge -Xignore-all-space oryx; then
+            echo "::error ::Merge conflict detected!"
+            echo "Git status:"
+            git status
+            echo "Conflicting files:"
+            git diff --name-only --diff-filter=U
+            echo "Conflict details in rules.mk:"
+            cat qv3wV/rules.mk || echo "rules.mk not found or not in conflict"
+            exit 1
+          fi
           git push
 
       - name: Checkout the right firmware branch
