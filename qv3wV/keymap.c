@@ -2,7 +2,9 @@
 #include "features/custom_shift_keys.h"
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
-#define ML_SAFE_RANGE SAFE_RANGE
+#ifndef ZSA_SAFE_RANGE
+#define ZSA_SAFE_RANGE SAFE_RANGE
+#endif
 
 const custom_shift_key_t custom_shift_keys[] = {
     {KC_QUOT, KC_UNDS}, // Shift ' is _
@@ -16,13 +18,13 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
+  RGB_SLD = ZSA_SAFE_RANGE,
 };
 
 
 
-#define DUAL_FUNC_0 LT(13, KC_F10)
-#define DUAL_FUNC_1 LT(7, KC_F12)
+#define DUAL_FUNC_0 LT(8, KC_F19)
+#define DUAL_FUNC_1 LT(7, KC_S)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -48,12 +50,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_F10,         KC_F11,         KC_F12,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_S)),KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_S)),KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F3)))),KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_F4,          KC_F5,          KC_F6,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_4)),LGUI(LSFT(KC_5)),KC_NUM,         KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          MT(MOD_LCTL, KC_F1),MT(MOD_LALT, KC_F2),MT(MOD_LGUI, KC_F3),KC_NO,                                          KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_ALT,   KC_RIGHT_GUI,   KC_NO,          KC_NO,          
                                                     KC_F11,         KC_F12,                                         KC_LEFT_SHIFT,  KC_TRANSPARENT
   ),
 };
+
 
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -80,7 +83,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [2] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,255,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255} },
 
-    [3] = { {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {218,255,248} },
+    [3] = { {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {0,0,0}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {218,255,248}, {218,255,248}, {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {218,255,248} },
 
 };
 
