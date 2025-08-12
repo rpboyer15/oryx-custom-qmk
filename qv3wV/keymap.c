@@ -23,8 +23,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(8, KC_F)
-#define DUAL_FUNC_1 LT(9, KC_F11)
+#define DUAL_FUNC_0 LT(13, KC_F8)
+#define DUAL_FUNC_1 LT(3, KC_F17)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_F10,         KC_F11,         KC_F12,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_S)),KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F3)))),KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_SYSTEM_WAKE, LGUI(LSFT(KC_S)),KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F3)))),KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_F4,          KC_F5,          KC_F6,          KC_NO,                                          KC_NO,          LGUI(LSFT(KC_4)),LGUI(LSFT(KC_5)),KC_NUM,         KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          MT(MOD_LCTL, KC_F1),MT(MOD_LALT, KC_F2),MT(MOD_LGUI, KC_F3),KC_NO,                                          KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_ALT,   KC_RIGHT_GUI,   KC_NO,          KC_NO,          
                                                     KC_F11,         KC_F12,                                         KC_LEFT_SHIFT,  KC_TRANSPARENT
@@ -114,7 +114,7 @@ bool rgb_matrix_indicators_user(void) {
   if (rawhid_state.rgb_control) {
       return false;
   }
-  if (keyboard_config.disable_layer_led) { return false; }
+  if (!keyboard_config.disable_layer_led) { 
   switch (biton32(layer_state)) {
     case 0:
       set_layer_color(0);
@@ -132,6 +132,11 @@ bool rgb_matrix_indicators_user(void) {
       if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
       rgb_matrix_set_color_all(0, 0, 0);
   }
+  }
+  } else {
+    if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
+      rgb_matrix_set_color_all(0, 0, 0);
+    }
   }
 
   return true;
