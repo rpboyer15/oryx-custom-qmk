@@ -23,8 +23,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(13, KC_F8)
-#define DUAL_FUNC_1 LT(3, KC_F17)
+#define DUAL_FUNC_0 LT(14, KC_V)
+#define DUAL_FUNC_1 LT(12, KC_F13)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -143,6 +143,9 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 
+
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_custom_shift_keys(keycode, record)) {
     return false;
@@ -212,5 +215,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-
