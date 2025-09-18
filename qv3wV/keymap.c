@@ -23,8 +23,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(7, KC_F16)
-#define DUAL_FUNC_1 LT(4, KC_7)
+#define DUAL_FUNC_0 LT(1, KC_W)
+#define DUAL_FUNC_1 LT(8, KC_F13)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F10,         KC_F11,         KC_F12,         KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          KC_NO,          KC_SYSTEM_WAKE, KC_SYSTEM_SLEEP,LGUI(LSFT(KC_S)),KC_NO,                                          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_SYSTEM_WAKE, LGUI(LCTL(KC_Q)),LGUI(LSFT(KC_S)),KC_NO,                                          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_NUM,         LGUI(LSFT(KC_5)),LGUI(LSFT(KC_4)),KC_NO,                                          KC_NO,          KC_F4,          KC_F5,          KC_F6,          KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_LEFT_CTRL,   KC_LEFT_GUI,    KC_LEFT_GUI,    KC_NO,                                          KC_NO,          MT(MOD_RGUI, KC_F1),MT(MOD_RALT, KC_F2),MT(MOD_RCTL, KC_F3),KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_LEFT_SHIFT,                                  KC_F12,         KC_F11
