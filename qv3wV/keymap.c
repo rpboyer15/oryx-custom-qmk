@@ -110,29 +110,30 @@ void set_layer_color(int layer) {
   }
 }
 
+
 bool rgb_matrix_indicators_user(void) {
   if (rawhid_state.rgb_control) {
       return false;
   }
   if (!keyboard_config.disable_layer_led) { 
-  switch (biton32(layer_state)) {
-    case 0:
-      set_layer_color(0);
-      break;
-    case 1:
-      set_layer_color(1);
-      break;
-    case 2:
-      set_layer_color(2);
-      break;
-    case 3:
-      set_layer_color(3);
-      break;
-   default:
-      if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
-      rgb_matrix_set_color_all(0, 0, 0);
-  }
-  }
+    switch (biton32(layer_state)) {
+      case 0:
+        set_layer_color(0);
+        break;
+      case 1:
+        set_layer_color(1);
+        break;
+      case 2:
+        set_layer_color(2);
+        break;
+      case 3:
+        set_layer_color(3);
+        break;
+     default:
+        if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
+          rgb_matrix_set_color_all(0, 0, 0);
+        }
+    }
   } else {
     if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
       rgb_matrix_set_color_all(0, 0, 0);
@@ -141,10 +142,6 @@ bool rgb_matrix_indicators_user(void) {
 
   return true;
 }
-
-
-
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // if (!process_custom_shift_keys(keycode, record)) {
@@ -163,7 +160,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false; // Prevent further processing
       }
       break;
-
     case MT(MOD_RCTL, KC_MINUS): // Replace with your Mod-Tap configuration
       if (record->tap.count && record->event.pressed) {
         if (get_mods() & MOD_MASK_SHIFT) { // Check if Shift is held
@@ -174,7 +170,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false; // Prevent further processing
       }
       break;
-
     case DUAL_FUNC_0:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -190,7 +185,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-
     case DUAL_FUNC_1:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -206,7 +200,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
