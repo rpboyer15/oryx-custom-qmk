@@ -11,8 +11,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(2, KC_F18)
-#define DUAL_FUNC_1 LT(6, KC_F4)
+#define DUAL_FUNC_0 LT(2, KC_F23)
+#define DUAL_FUNC_1 LT(8, KC_G)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -24,9 +24,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),KC_TRANSPARENT, LGUI(LCTL(KC_Q)),
-    KC_TRANSPARENT, KC_NO,          LALT(LGUI(LCTL(KC_F))),LGUI(LSFT(KC_SPACE)),LALT(LGUI(LCTL(KC_U))),KC_HOME,                                        KC_HASH,        KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_GRAVE,       KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_NO,          LALT(LGUI(LCTL(KC_F))),LGUI(LSFT(KC_SPACE)),LALT(LGUI(LCTL(KC_U))),KC_HOME,                                        KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
     KC_TRANSPARENT, LALT(LGUI(LCTL(KC_J))),LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_END,                                         KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
-    MO(3),          LGUI(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_PERC,        KC_TRANSPARENT, 
+    MO(3),          LGUI(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(2, KC_SPACE)
   ),
   [2] = LAYOUT_voyager(
@@ -155,9 +155,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DUAL_FUNC_1:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
-          register_code16(KC_AMPR);
+          register_code16(KC_PERC);
         } else {
-          unregister_code16(KC_AMPR);
+          unregister_code16(KC_PERC);
         }
       } else {
         if (record->event.pressed) {
