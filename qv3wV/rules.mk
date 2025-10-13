@@ -6,3 +6,4 @@ SPACE_CADET_ENABLE = no
 LAYER_LOCK_ENABLE = yes
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = navigator_trackball
+SRC += features/custom_shift_keys.c
