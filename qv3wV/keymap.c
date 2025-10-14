@@ -17,10 +17,10 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(1, KC_F1)
-#define DUAL_FUNC_1 LT(4, KC_7)
-#define DUAL_FUNC_2 LT(1, KC_O)
-#define DUAL_FUNC_3 LT(1, KC_C)
+#define DUAL_FUNC_0 LT(11, KC_P)
+#define DUAL_FUNC_1 LT(12, KC_B)
+#define DUAL_FUNC_2 LT(8, KC_B)
+#define DUAL_FUNC_3 LT(15, KC_U)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -31,10 +31,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     LT(1, KC_SPACE),KC_LEFT_SHIFT,                                  MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1),LT(2, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_DEC_CPI,NAVIGATOR_INC_CPI,QK_LLCK,                                        KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),LGUI(LCTL(KC_Q)),KC_NO,          
-    LGUI(LSFT(KC_SPACE)),KC_HOME,        LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
-    LALT(LGUI(LCTL(KC_J))),KC_END,         KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     DRAG_SCROLL,                                    KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
-    KC_TRANSPARENT, LGUI(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
+    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_DEC_CPI,NAVIGATOR_INC_CPI,KC_TRANSPARENT,                                 KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),LGUI(LCTL(KC_Q)),KC_NO,          
+    LGUI(LSFT(KC_SPACE)),KC_HOME,        KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
+    LALT(LGUI(LCTL(KC_J))),KC_END,         LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   DRAG_SCROLL,                                    KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    QK_LLCK,        LGUI(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(2, KC_SPACE)
   ),
   [2] = LAYOUT_voyager(
@@ -105,7 +105,7 @@ void keyboard_post_init_user(void) {
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [0] = { {218,255,248}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {93,255,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {173,255,255}, {0,255,255} },
 
-    [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {24,255,255}, {24,255,255}, {129,255,255}, {129,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {0,0,255}, {0,255,255} },
+    [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {93,255,255}, {93,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {0,0,0}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {24,255,255}, {24,255,255}, {129,255,255}, {129,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {93,255,255}, {0,0,0}, {0,0,255}, {0,255,255} },
 
     [2] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,255}, {0,255,255}, {44,255,255}, {124,255,255}, {93,255,255}, {124,255,255}, {44,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,255,255} },
 
