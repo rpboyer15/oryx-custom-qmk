@@ -17,10 +17,10 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(8, KC_8)
-#define DUAL_FUNC_1 LT(6, KC_G)
-#define DUAL_FUNC_2 LT(6, KC_F7)
-#define DUAL_FUNC_3 LT(4, KC_F22)
+#define DUAL_FUNC_0 LT(7, KC_T)
+#define DUAL_FUNC_1 LT(6, KC_F13)
+#define DUAL_FUNC_2 LT(6, KC_7)
+#define DUAL_FUNC_3 LT(4, KC_I)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -32,8 +32,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),LGUI(LCTL(KC_Q)),KC_NO,          
-    LGUI(LSFT(KC_SPACE)),KC_HOME,        KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
-    LALT(LGUI(LCTL(KC_J))),KC_END,         LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   DRAG_SCROLL,                                    KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    LGUI(LSFT(KC_SPACE)),KC_HOME,        KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
+    LALT(LGUI(LCTL(KC_J))),KC_END,         LCTL(LSFT(KC_TAB)),LGUI(KC_T),     LCTL(KC_TAB),   KC_MS_BTN3,                                     KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     QK_LLCK,        LGUI(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(2, KC_SPACE)
   ),
@@ -60,8 +60,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [5] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          
-    KC_TRANSPARENT, KC_HOME,        KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,     TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_END,         LCTL(LSFT(KC_TAB)),LCTL(KC_T),     LCTL(KC_TAB),   DRAG_SCROLL,                                    KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_HOME,        KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     TOGGLE_SCROLL,                                  KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_END,         LCTL(LSFT(KC_TAB)),LCTL(KC_T),     LCTL(KC_TAB),   KC_MS_BTN3,                                     KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     KC_TRANSPARENT, LCTL(KC_W),     KC_LEFT_CTRL,   MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_3,    LCTL(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(6, KC_SPACE)
   ),
