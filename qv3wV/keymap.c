@@ -28,11 +28,11 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(2, KC_F11)
-#define DUAL_FUNC_1 LT(7, KC_2)
-#define DUAL_FUNC_2 LT(6, KC_I)
-#define DUAL_FUNC_3 LT(10, KC_Q)
-#define DUAL_FUNC_4 LT(11, KC_F9)
+#define DUAL_FUNC_0 LT(2, KC_H)
+#define DUAL_FUNC_1 LT(1, KC_F21)
+#define DUAL_FUNC_2 LT(7, KC_F7)
+#define DUAL_FUNC_3 LT(10, KC_F19)
+#define DUAL_FUNC_4 LT(13, KC_O)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -44,8 +44,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_F14,         KC_F15,         LALT(LGUI(LCTL(LSFT(KC_F2)))),LALT(LGUI(LCTL(LSFT(KC_F1)))),LGUI(LCTL(KC_Q)),KC_NO,          
-    KC_TRANSPARENT, LGUI(LSFT(KC_SPACE)),LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   KC_HOME,                                        KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, LALT(LGUI(LCTL(KC_J))),KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     KC_END,                                         KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    KC_TRANSPARENT, LALT(LGUI(LCTL(KC_J))),LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   KC_HOME,                                        KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
+    KC_TRANSPARENT, LGUI(LSFT(KC_SPACE)),KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     KC_END,                                         KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     KC_TRANSPARENT, LGUI(KC_W),     LGUI(KC_T),     MT(MOD_LALT, KC_ESCAPE),DUAL_FUNC_0,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_1,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_KP_EQUAL,    
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(2, KC_SPACE)
   ),
