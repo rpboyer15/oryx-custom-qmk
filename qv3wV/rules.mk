@@ -5,4 +5,3 @@ RGB_MATRIX_CUSTOM_KB = yes
 SPACE_CADET_ENABLE = no
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = navigator_trackball
-SRC += features/custom_shift_keys.c
