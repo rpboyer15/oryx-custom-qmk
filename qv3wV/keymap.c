@@ -23,23 +23,23 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(15, KC_V)
-#define DUAL_FUNC_1 LT(11, KC_W)
-#define DUAL_FUNC_2 LT(10, KC_K)
-#define DUAL_FUNC_3 LT(3, KC_4)
-#define DUAL_FUNC_4 LT(7, KC_F8)
-#define DUAL_FUNC_5 LT(5, KC_F10)
+#define DUAL_FUNC_0 LT(9, KC_X)
+#define DUAL_FUNC_1 LT(13, KC_B)
+#define DUAL_FUNC_2 LT(7, KC_F8)
+#define DUAL_FUNC_3 LT(14, KC_0)
+#define DUAL_FUNC_4 LT(13, KC_F18)
+#define DUAL_FUNC_5 LT(8, KC_F15)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    OSL(2),         KC_F11,         KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,LGUI(LSFT(KC_4)),                                KC_NO,          KC_F14,         KC_NO,          KC_F15,         KC_NO,          TG(3),          
+    OSL(2),         LGUI(LSFT(KC_4)),KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_F11,                                         KC_NO,          KC_F14,         KC_NO,          KC_F15,         KC_NO,          TG(3),          
     KC_TAB,         KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,                                           KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_BSPC,        
     KC_COMMA,       KC_N,           KC_R,           KC_T,           KC_S,           KC_G,                                           KC_Y,           KC_H,           KC_A,           KC_E,           KC_I,           KC_ENTER,       
     KC_BSLS,        KC_Q,           MT(MOD_LCTL, KC_X),MT(MOD_LALT, KC_M),MT(MOD_LGUI, KC_C),KC_V,                                           KC_K,           MT(MOD_RGUI, KC_P),MT(MOD_RALT, KC_DOT),MT(MOD_RCTL, KC_MINUS),KC_SLASH,       KC_SCLN,        
                                                     LT(1, KC_KP_EQUAL),KC_LEFT_SHIFT,                                  MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1),LT(6, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_NO,          KC_F12,         KC_MEDIA_PREV_TRACK,KC_AUDIO_MUTE,  KC_MEDIA_NEXT_TRACK,LGUI(LSFT(KC_5)),                                KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F2)))),KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F1)))),KC_NO,          KC_NO,          
+    KC_NO,          LGUI(LSFT(KC_5)),KC_MEDIA_PREV_TRACK,KC_AUDIO_MUTE,  KC_MEDIA_NEXT_TRACK,KC_F12,                                         KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F2)))),KC_NO,          LALT(LGUI(LCTL(LSFT(KC_F1)))),KC_NO,          KC_NO,          
     LGUI(KC_RBRC),  KC_HOME,        LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   LGUI(KC_Z),                                     KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
     LGUI(KC_LBRC),  KC_END,         KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     KC_NO,                                          KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     KC_ESCAPE,      LGUI(KC_W),     DUAL_FUNC_0,    DUAL_FUNC_1,    DUAL_FUNC_2,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_3,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
