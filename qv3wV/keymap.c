@@ -11,12 +11,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(9, KC_X)
-#define DUAL_FUNC_1 LT(13, KC_B)
-#define DUAL_FUNC_2 LT(7, KC_F8)
-#define DUAL_FUNC_3 LT(14, KC_0)
-#define DUAL_FUNC_4 LT(13, KC_F18)
-#define DUAL_FUNC_5 LT(8, KC_F15)
+#define DUAL_FUNC_0 LT(11, KC_F21)
+#define DUAL_FUNC_1 LT(12, KC_1)
+#define DUAL_FUNC_2 LT(8, KC_F8)
+#define DUAL_FUNC_3 LT(15, KC_F15)
+#define DUAL_FUNC_4 LT(2, KC_3)
+#define DUAL_FUNC_5 LT(2, KC_F8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     LGUI(LSFT(KC_S)),KC_NUM,                                         KC_NO,          KC_NO
   ),
   [6] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_NO,          
     KC_TRANSPARENT, KC_NO,          KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_TRANSPARENT, KC_NO,          KC_UP,          KC_NO,          KC_DELETE,      KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          MT(MOD_LCTL, KC_KP_1),MT(MOD_LALT, KC_KP_2),MT(MOD_LGUI, KC_KP_3),KC_NO,                                          KC_KP_ASTERISK, MT(MOD_RGUI, KC_KP_PLUS),MT(MOD_RALT, KC_KP_DOT),MT(MOD_RCTL, KC_KP_MINUS),KC_KP_SLASH,    KC_TRANSPARENT, 
