@@ -12,14 +12,13 @@ const custom_shift_key_t custom_shift_keys[] = {
     {KC_MINS, KC_DQUO}, // Shift - is "
     {KC_SLSH, KC_RABK}, // Shift / is >
     {KC_DOT, KC_LABK}, // Shift . is <
-	{KC_EQUAL, KC_EQUAL} // Shift = is =
+    {KC_EQUAL, KC_EQUAL} // Shift = is =
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
-  DRAG_SCROLL,
 };
 
 
@@ -200,10 +199,6 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
-extern bool set_scrolling;
-extern bool navigator_turbo;
-extern bool navigator_aim;
-
 
 
 
@@ -212,11 +207,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
   switch (keycode) {
-  case QK_MODS ... QK_MODS_MAX: 
+  case QK_MODS ... QK_MODS_MAX:
     // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
     // this makes sure that modifiers are always applied to the key that was pressed.
     if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode)) || IS_CONSUMER_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
-    if (record->event.pressed) {
+      if (record->event.pressed) {
         add_mods(QK_MODS_GET_MODS(keycode));
         send_keyboard_report();
         wait_ms(2);
@@ -354,13 +349,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code16(KC_LEFT_GUI);
         }  
       }  
-      return false;
-    case DRAG_SCROLL:
-      if (record->event.pressed) {
-        set_scrolling = true;
-      } else {
-        set_scrolling = false;
-      }
       return false;
     case RGB_SLD:
       if (record->event.pressed) {
