@@ -1,9 +1,21 @@
 #include QMK_KEYBOARD_H
+#include "features/custom_shift_keys.h"
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #ifndef ZSA_SAFE_RANGE
 #define ZSA_SAFE_RANGE SAFE_RANGE
 #endif
+
+const custom_shift_key_t custom_shift_keys[] = {
+    {KC_QUOT,  KC_UNDS},  // Shift ' → _
+    {KC_COMM,  KC_QUES},  // Shift , → ?
+    {KC_MINS,  KC_DQUO},  // Shift - → "
+    {KC_SLSH,  KC_RABK},  // Shift / → >
+    {KC_DOT,   KC_LABK},  // Shift . → <
+    {KC_EQUAL, KC_EQUAL}  // Shift = → =
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
@@ -140,22 +152,47 @@ bool rgb_matrix_indicators_user(void) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_custom_shift_keys(keycode, record)) {
+    return false;
+  }
   switch (keycode) {
-  case QK_MODS ... QK_MODS_MAX:
-    // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
-    // this makes sure that modifiers are always applied to the key that was pressed.
-    if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode)) || IS_CONSUMER_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
-      if (record->event.pressed) {
-        add_mods(QK_MODS_GET_MODS(keycode));
-        send_keyboard_report();
-        wait_ms(2);
-        register_code(QK_MODS_GET_BASIC_KEYCODE(keycode));
-        return false;
-      } else {
-        wait_ms(2);
-        del_mods(QK_MODS_GET_MODS(keycode));
+    case QK_MODS ... QK_MODS_MAX:
+      // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
+      // this makes sure that modifiers are always applied to the key that was pressed.
+      if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode)) || IS_CONSUMER_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
+        if (record->event.pressed) {
+          add_mods(QK_MODS_GET_MODS(keycode));
+          send_keyboard_report();
+          wait_ms(2);
+          register_code(QK_MODS_GET_BASIC_KEYCODE(keycode));
+          return false;
+        } else {
+          wait_ms(2);
+          del_mods(QK_MODS_GET_MODS(keycode));
+        }
       }
-    }
+      break;
+
+    case MT(MOD_RALT, KC_DOT):
+      if (record->tap.count && record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_LABK);   // Shift held → <
+        } else {
+          tap_code16(KC_DOT);    // Normal → .
+        }
+        return false;
+      }
+      break;
+
+    case MT(MOD_RCTL, KC_MINUS):
+      if (record->tap.count && record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_DQUO);   // Shift held → "
+        } else {
+          tap_code16(KC_MINUS);  // Normal → -
+        }
+        return false;
+      }
     break;
 
     case DUAL_FUNC_0:
@@ -173,6 +210,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case DUAL_FUNC_1:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -188,6 +226,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case DUAL_FUNC_2:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -203,6 +242,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case DUAL_FUNC_3:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -218,6 +258,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case DUAL_FUNC_4:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -233,6 +274,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case DUAL_FUNC_5:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -248,6 +290,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
+    
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
