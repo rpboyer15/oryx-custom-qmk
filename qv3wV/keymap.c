@@ -11,12 +11,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(2, KC_A)
-#define DUAL_FUNC_1 LT(9, KC_F13)
-#define DUAL_FUNC_2 LT(2, KC_F17)
-#define DUAL_FUNC_3 LT(5, KC_N)
-#define DUAL_FUNC_4 LT(1, KC_L)
-#define DUAL_FUNC_5 LT(10, KC_U)
+#define DUAL_FUNC_0 LT(3, KC_P)
+#define DUAL_FUNC_1 LT(2, KC_F4)
+#define DUAL_FUNC_2 LT(7, KC_U)
+#define DUAL_FUNC_3 LT(5, KC_F22)
+#define DUAL_FUNC_4 LT(14, KC_I)
+#define DUAL_FUNC_5 LT(10, KC_F9)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -58,18 +58,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(1, KC_KP_EQUAL):
-            return TAPPING_TERM -40;
-        case LT(4, KC_SPACE):
-            return TAPPING_TERM -40;
-        case LT(3, KC_EQUAL):
-            return TAPPING_TERM -40;
-        default:
-            return TAPPING_TERM;
-    }
-}
 
 
 extern rgb_config_t rgb_matrix_config;
