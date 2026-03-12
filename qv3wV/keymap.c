@@ -12,12 +12,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(1, KC_K)
-#define DUAL_FUNC_1 LT(5, KC_F18)
-#define DUAL_FUNC_2 LT(9, KC_P)
-#define DUAL_FUNC_3 LT(1, KC_F11)
-#define DUAL_FUNC_4 LT(9, KC_2)
-#define DUAL_FUNC_5 LT(8, KC_F8)
+#define DUAL_FUNC_0 LT(12, KC_F6)
+#define DUAL_FUNC_1 LT(10, KC_Q)
+#define DUAL_FUNC_2 LT(11, KC_F8)
+#define DUAL_FUNC_3 LT(12, KC_1)
+#define DUAL_FUNC_4 LT(11, KC_W)
+#define DUAL_FUNC_5 LT(8, KC_F13)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
