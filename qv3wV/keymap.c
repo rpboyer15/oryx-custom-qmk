@@ -6,17 +6,6 @@
 #define ZSA_SAFE_RANGE SAFE_RANGE
 #endif
 
-const custom_shift_key_t custom_shift_keys[] = {
-    {KC_QUOT,  KC_UNDS},  // Shift ' → _
-    {KC_COMM,  KC_QUES},  // Shift , → ?
-    {KC_MINS,  KC_DQUO},  // Shift - → "
-    {KC_SLSH,  KC_RABK},  // Shift / → >
-    {KC_DOT,   KC_LABK},  // Shift . → <
-    {KC_EQUAL, KC_EQUAL}  // Shift = → =
-};
-uint8_t NUM_CUSTOM_SHIFT_KEYS =
-    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
-
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
 };
@@ -152,9 +141,6 @@ bool rgb_matrix_indicators_user(void) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_custom_shift_keys(keycode, record)) {
-    return false;
-  }
   switch (keycode) {
     case QK_MODS ... QK_MODS_MAX:
       // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
@@ -172,28 +158,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       }
       break;
-
-    case MT(MOD_RALT, KC_DOT):
-      if (record->tap.count && record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) {
-          tap_code16(KC_LABK);   // Shift held → <
-        } else {
-          tap_code16(KC_DOT);    // Normal → .
-        }
-        return false;
-      }
-      break;
-
-    case MT(MOD_RCTL, KC_MINUS):
-      if (record->tap.count && record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) {
-          tap_code16(KC_DQUO);   // Shift held → "
-        } else {
-          tap_code16(KC_MINUS);  // Normal → -
-        }
-        return false;
-      }
-    break;
 
     case DUAL_FUNC_0:
       if (record->tap.count > 0) {
