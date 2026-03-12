@@ -23,10 +23,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
         with:
-          ref: oryx
-
-      - name: Download the full history for the merge to work correctly
-        run: git pull --unshallow
+          ref: main
 
       - name: Download layout source
         id: download-layout-source
@@ -49,28 +46,15 @@ jobs:
           unzip -oj source.zip '*_source/*' -d ${{ github.event.inputs.layout_id }}
           rm source.zip
 
+      - name: Patch in custom keymap code
+        run: ./patch_custom.sh ${{ github.event.inputs.layout_id }}
+
       - name: Commit and Push changes
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
           git add .
           git commit -m "✨(oryx): ${{ steps.download-layout-source.outputs.change_description }}" || echo "No layout change"
-          git push
-
-      - name: Merge Oryx with custom QMK
-        run: |
-          git fetch origin main
-          git checkout -B main origin/main
-          if ! git merge -Xignore-all-space oryx; then
-            echo "::error ::Merge conflict detected!"
-            echo "Git status:"
-            git status
-            echo "Conflicting files:"
-            git diff --name-only --diff-filter=U
-            echo "Conflict details in rules.mk:"
-            cat qv3wV/rules.mk || echo "rules.mk not found or not in conflict"
-            exit 1
-          fi
           git push
 
       - name: Checkout the right firmware branch
