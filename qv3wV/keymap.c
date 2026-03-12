@@ -141,6 +141,7 @@ bool rgb_matrix_indicators_user(void) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_custom_keymap(keycode, record)) { return false; }
   switch (keycode) {
   case QK_MODS ... QK_MODS_MAX:
     // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
