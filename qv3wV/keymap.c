@@ -12,12 +12,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(3, KC_F13)
-#define DUAL_FUNC_1 LT(6, KC_F12)
-#define DUAL_FUNC_2 LT(9, KC_W)
-#define DUAL_FUNC_3 LT(2, KC_N)
-#define DUAL_FUNC_4 LT(9, KC_P)
-#define DUAL_FUNC_5 LT(15, KC_F13)
+#define DUAL_FUNC_0 LT(9, KC_F20)
+#define DUAL_FUNC_1 LT(5, KC_F14)
+#define DUAL_FUNC_2 LT(8, KC_K)
+#define DUAL_FUNC_3 LT(9, KC_Q)
+#define DUAL_FUNC_4 LT(6, KC_F14)
+#define DUAL_FUNC_5 LT(12, KC_G)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(4, KC_SPACE)
   ),
   [4] = LAYOUT_voyager(
-    KC_NO,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
     KC_TRANSPARENT, KC_NO,          KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_TRANSPARENT, KC_F11,         KC_UP,          KC_F12,         KC_DELETE,      KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          MT(MOD_LCTL, KC_KP_1),MT(MOD_LALT, KC_KP_2),MT(MOD_LGUI, KC_KP_3),KC_NO,                                          KC_KP_ASTERISK, MT(MOD_RGUI, KC_KP_PLUS),MT(MOD_RALT, KC_KP_DOT),MT(MOD_RCTL, KC_KP_MINUS),KC_KP_SLASH,    KC_TRANSPARENT, 
@@ -59,6 +59,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(4, KC_SPACE):
+            return TAPPING_TERM -160;
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 
 extern rgb_config_t rgb_matrix_config;
