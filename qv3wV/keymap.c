@@ -12,10 +12,10 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(6, KC_F5)
-#define DUAL_FUNC_1 LT(7, KC_F20)
-#define DUAL_FUNC_2 LT(10, KC_F17)
-#define DUAL_FUNC_3 LT(15, KC_F10)
+#define DUAL_FUNC_0 LT(11, KC_I)
+#define DUAL_FUNC_1 LT(8, KC_F5)
+#define DUAL_FUNC_2 LT(7, KC_F9)
+#define DUAL_FUNC_3 LT(4, KC_F15)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -47,10 +47,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(4, KC_SPACE)
   ),
   [4] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_F1,          MT(MOD_LCTL, KC_F2),MT(MOD_LALT, KC_F3),MT(MOD_LCTL, KC_F4),KC_F5,                                          KC_F6,          MT(MOD_RGUI, KC_F7),MT(MOD_RALT, KC_F8),MT(MOD_RCTL, KC_F9),KC_F10,         KC_NO,          
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
     KC_TRANSPARENT, KC_NO,          KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NO,                                          KC_TRANSPARENT, KC_F11,         KC_UP,          KC_F12,         KC_DELETE,      KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_NO,                                          KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_NO,          KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_NO,                                          KC_KP_ASTERISK, KC_KP_PLUS,     KC_KP_DOT,      KC_KP_MINUS,    KC_KP_SLASH,    KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_LEFT_CTRL,   MT(MOD_LALT, KC_KP_1),MT(MOD_LGUI, KC_KP_2),KC_KP_3,        KC_NO,                                          KC_KP_ASTERISK, KC_KP_PLUS,     MT(MOD_RGUI, KC_KP_DOT),MT(MOD_RALT, KC_KP_MINUS),MT(MOD_RCTL, KC_KP_SLASH),KC_TRANSPARENT, 
                                                     KC_KP_0,        MT(MOD_LSFT, KC_SPACE),                                KC_NO,          KC_TRANSPARENT
   ),
 };
