@@ -31,9 +31,9 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_RALT, KC_MINUS):
     if (record->tap.count && record->event.pressed) {
       if (get_mods() & MOD_MASK_SHIFT) {
-        tap_code16(KC_LABK); // Shift held → <
+        tap_code16(KC_DQUO); // Shift held →
       } else {
-        tap_code16(KC_DOT); // Normal → .
+        tap_code16(KC_MINUS); // Normal → -
       }
       return false;
     }
@@ -42,9 +42,9 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_RCTL, KC_SLASH):
     if (record->tap.count && record->event.pressed) {
       if (get_mods() & MOD_MASK_SHIFT) {
-        tap_code16(KC_LABK); // Shift held → <
+        tap_code16(KC_RABK); // Shift held →
       } else {
-        tap_code16(KC_DOT); // Normal → .
+        tap_code16(KC_SLASH); // Normal → . /
       }
       return false;
     }
