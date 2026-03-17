@@ -12,10 +12,14 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(11, KC_I)
-#define DUAL_FUNC_1 LT(8, KC_F5)
-#define DUAL_FUNC_2 LT(7, KC_F9)
-#define DUAL_FUNC_3 LT(4, KC_F15)
+#define DUAL_FUNC_0 LT(4, KC_F7)
+#define DUAL_FUNC_1 LT(11, KC_V)
+#define DUAL_FUNC_2 LT(14, KC_F16)
+#define DUAL_FUNC_3 LT(10, KC_F7)
+#define DUAL_FUNC_4 LT(5, KC_K)
+#define DUAL_FUNC_5 LT(14, KC_F4)
+#define DUAL_FUNC_6 LT(7, KC_H)
+#define DUAL_FUNC_7 LT(14, KC_H)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -26,10 +30,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     LT(1, KC_KP_EQUAL),KC_LEFT_SHIFT,                                  MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1),LT(4, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,MT(MOD_LCTL, KC_AUDIO_VOL_DOWN),MT(MOD_LALT, KC_MEDIA_PLAY_PAUSE),MT(MOD_LGUI, KC_AUDIO_VOL_UP),KC_MEDIA_NEXT_TRACK,                                KC_NO,          MT(MOD_RGUI, KC_F14),KC_RIGHT_ALT,   MT(MOD_RCTL, KC_F15),KC_NO,          KC_NO,          
+    KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_NO,          KC_F14,         KC_NO,          KC_F15,         KC_NO,          KC_NO,          
     KC_HOME,        LGUI(KC_RBRC),  LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   LGUI(KC_Z),                                     KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
     KC_END,         LGUI(KC_LBRC),  KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     LALT(LGUI(LCTL(LSFT(KC_F11)))),                                KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
-    KC_ESCAPE,      LGUI(KC_W),     LGUI(KC_X),     LGUI(KC_T),     LGUI(KC_C),     LGUI(KC_V),                                     KC_AT,          KC_PERC,        KC_LBRC,        KC_RBRC,        KC_AMPR,        KC_TRANSPARENT, 
+    KC_ESCAPE,      DUAL_FUNC_0,    DUAL_FUNC_1,    DUAL_FUNC_2,    LGUI(KC_C),     LGUI(KC_V),                                     KC_AT,          KC_PERC,        MT(MOD_RGUI, KC_LBRC),MT(MOD_RALT, KC_RBRC),DUAL_FUNC_3,    KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(4, KC_SPACE)
   ),
   [2] = LAYOUT_voyager(
@@ -43,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_NUM,         KC_F14,         KC_NO,          KC_F15,         LGUI(LSFT(KC_S)),KC_NO,          
     KC_HOME,        LALT(KC_RIGHT), LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   LCTL(KC_Z),                                     KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
     KC_END,         LALT(KC_LEFT),  KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     LGUI(KC_D),                                     KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
-    KC_ESCAPE,      LCTL(KC_W),     DUAL_FUNC_0,    DUAL_FUNC_1,    DUAL_FUNC_2,    LCTL(KC_V),                                     KC_AT,          DUAL_FUNC_3,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
+    KC_ESCAPE,      LCTL(KC_W),     DUAL_FUNC_4,    DUAL_FUNC_5,    DUAL_FUNC_6,    LCTL(KC_V),                                     KC_AT,          DUAL_FUNC_7,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(4, KC_SPACE)
   ),
   [4] = LAYOUT_voyager(
@@ -161,6 +165,66 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DUAL_FUNC_0:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
+          register_code16(LGUI(KC_W));
+        } else {
+          unregister_code16(LGUI(KC_W));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_CTRL);
+        } else {
+          unregister_code16(KC_LEFT_CTRL);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_1:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(LGUI(KC_X));
+        } else {
+          unregister_code16(LGUI(KC_X));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_ALT);
+        } else {
+          unregister_code16(KC_LEFT_ALT);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_2:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(LGUI(KC_T));
+        } else {
+          unregister_code16(LGUI(KC_T));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_LEFT_GUI);
+        } else {
+          unregister_code16(KC_LEFT_GUI);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_3:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_AMPR);
+        } else {
+          unregister_code16(KC_AMPR);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_CTRL);
+        } else {
+          unregister_code16(KC_RIGHT_CTRL);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_4:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
           register_code16(LGUI(KC_X));
         } else {
           unregister_code16(LGUI(KC_X));
@@ -173,7 +237,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_1:
+    case DUAL_FUNC_5:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(LCTL(KC_T));
@@ -188,7 +252,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_2:
+    case DUAL_FUNC_6:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(LCTL(KC_C));
@@ -203,7 +267,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_3:
+    case DUAL_FUNC_7:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(KC_PERC);
