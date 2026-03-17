@@ -15,9 +15,8 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
   if (!process_custom_shift_keys(keycode, record)) {
     return false;
   }
-  MT(MOD_RGUI, KC_DOT), MT(MOD_RALT, KC_MINUS), MT(MOD_RCTL, KC_SLASH),
-      switch (keycode) {
 
+  switch (keycode) {
   case MT(MOD_RGUI, KC_DOT):
     if (record->tap.count && record->event.pressed) {
       if (get_mods() & MOD_MASK_SHIFT) {
