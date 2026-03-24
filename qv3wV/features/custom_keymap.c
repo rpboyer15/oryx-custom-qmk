@@ -17,7 +17,40 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-  case MT(MOD_RGUI, KC_DOT):
+    // case MT(MOD_RGUI, KC_DOT):
+    //   if (record->tap.count && record->event.pressed) {
+    //     if (get_mods() & MOD_MASK_SHIFT) {
+    //       tap_code16(KC_LABK); // Shift held → <
+    //     } else {
+    //       tap_code16(KC_DOT); // Normal → .
+    //     }
+    //     return false;
+    //   }
+    //   break;
+    //
+    // case MT(MOD_RALT, KC_MINUS):
+    //   if (record->tap.count && record->event.pressed) {
+    //     if (get_mods() & MOD_MASK_SHIFT) {
+    //       tap_code16(KC_DQUO); // Shift held → "
+    //     } else {
+    //       tap_code16(KC_MINUS); // Normal → -
+    //     }
+    //     return false;
+    //   }
+    //   break;
+    //
+    // case MT(MOD_RCTL, KC_SLASH):
+    //   if (record->tap.count && record->event.pressed) {
+    //     if (get_mods() & MOD_MASK_SHIFT) {
+    //       tap_code16(KC_RABK); // Shift held → >
+    //     } else {
+    //       tap_code16(KC_SLASH); // Normal → . /
+    //     }
+    //     return false;
+    //   }
+    //   break;
+
+  case MT(MOD_RALT, KC_DOT):
     if (record->tap.count && record->event.pressed) {
       if (get_mods() & MOD_MASK_SHIFT) {
         tap_code16(KC_LABK); // Shift held → <
@@ -28,7 +61,7 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 
-  case MT(MOD_RALT, KC_MINUS):
+  case MT(MOD_RCTL, KC_MINUS):
     if (record->tap.count && record->event.pressed) {
       if (get_mods() & MOD_MASK_SHIFT) {
         tap_code16(KC_DQUO); // Shift held → "
@@ -38,39 +71,6 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
       return false;
     }
     break;
-
-  case MT(MOD_RCTL, KC_SLASH):
-    if (record->tap.count && record->event.pressed) {
-      if (get_mods() & MOD_MASK_SHIFT) {
-        tap_code16(KC_RABK); // Shift held → >
-      } else {
-        tap_code16(KC_SLASH); // Normal → . /
-      }
-      return false;
-    }
-    break;
-
-    //   case MT(MOD_RALT, KC_DOT):
-    //     if (record->tap.count && record->event.pressed) {
-    //       if (get_mods() & MOD_MASK_SHIFT) {
-    //         tap_code16(KC_LABK);   // Shift held → <
-    //       } else {
-    //         tap_code16(KC_DOT);    // Normal → .
-    //       }
-    //       return false;
-    //     }
-    //     break;
-    //
-    //   case MT(MOD_RCTL, KC_MINUS):
-    //     if (record->tap.count && record->event.pressed) {
-    //       if (get_mods() & MOD_MASK_SHIFT) {
-    //         tap_code16(KC_DQUO);   // Shift held → "
-    //       } else {
-    //         tap_code16(KC_MINUS);  // Normal → -
-    //       }
-    //       return false;
-    //     }
-    //     break;
   }
 
   return true;
