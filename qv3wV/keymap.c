@@ -12,12 +12,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(1, KC_F)
-#define DUAL_FUNC_1 LT(8, KC_F)
-#define DUAL_FUNC_2 LT(9, KC_5)
-#define DUAL_FUNC_3 LT(8, KC_3)
-#define DUAL_FUNC_4 LT(12, KC_F8)
-#define DUAL_FUNC_5 LT(2, KC_F22)
+#define DUAL_FUNC_0 LT(4, KC_X)
+#define DUAL_FUNC_1 LT(13, KC_O)
+#define DUAL_FUNC_2 LT(7, KC_J)
+#define DUAL_FUNC_3 LT(13, KC_F12)
+#define DUAL_FUNC_4 LT(8, KC_Y)
+#define DUAL_FUNC_5 LT(13, KC_B)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,                                           KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_BSPC,        
     KC_COMMA,       KC_N,           KC_R,           KC_T,           KC_S,           KC_G,                                           KC_Y,           KC_H,           KC_A,           KC_E,           KC_I,           KC_ENTER,       
     KC_BSLS,        KC_Q,           MT(MOD_LCTL, KC_X),MT(MOD_LALT, KC_M),MT(MOD_LGUI, KC_C),KC_V,                                           KC_K,           MT(MOD_RGUI, KC_P),MT(MOD_RALT, KC_DOT),MT(MOD_RCTL, KC_MINUS),KC_SLASH,       KC_SCLN,        
-                                                    LT(1, KC_KP_EQUAL),KC_LEFT_SHIFT,                                  MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1),LT(4, KC_SPACE)
+                                                    LT(1, KC_EQUAL),KC_LEFT_SHIFT,                                  MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1),LT(4, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_NO,          KC_F14,         KC_NO,          KC_F15,         KC_NO,          KC_NO,          
