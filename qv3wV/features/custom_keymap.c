@@ -76,13 +76,13 @@ bool process_custom_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-// uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record,
-//                            uint16_t flow_tap_term) {
-//   // Disable Flow Tap for all layer-tap keys (thumb LT keys)
-//   // and the hyper mod-tap thumb key so layers activate instantly
-//   if (IS_QK_LAYER_TAP(keycode) ||
-//       keycode == MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1)) {
-//     return 0;
-//   }
-//   return flow_tap_term;
-// }
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record,
+                           uint16_t flow_tap_term) {
+  // Disable Flow Tap for all layer-tap keys (thumb LT keys)
+  // and the hyper mod-tap thumb key so layers activate instantly
+  if (IS_QK_LAYER_TAP(keycode) ||
+      keycode == MT(MOD_LALT | MOD_LGUI | MOD_LCTL, KC_MS_BTN1)) {
+    return 0;
+  }
+  return flow_tap_term;
+}
