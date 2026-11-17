@@ -12,12 +12,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(4, KC_F12)
-#define DUAL_FUNC_1 LT(8, KC_F11)
-#define DUAL_FUNC_2 LT(9, KC_F12)
-#define DUAL_FUNC_3 LT(5, KC_0)
-#define DUAL_FUNC_4 LT(14, KC_F20)
-#define DUAL_FUNC_5 LT(14, KC_O)
+#define DUAL_FUNC_0 LT(14, KC_F10)
+#define DUAL_FUNC_1 LT(8, KC_F10)
+#define DUAL_FUNC_2 LT(1, KC_F13)
+#define DUAL_FUNC_3 LT(14, KC_L)
+#define DUAL_FUNC_4 LT(3, KC_F3)
+#define DUAL_FUNC_5 LT(11, KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_voyager(
     KC_AUDIO_MUTE,  KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_VOL_UP,KC_MEDIA_NEXT_TRACK,                                KC_NO,          KC_F14,         KC_NO,          KC_F15,         KC_NO,          TG(2),          
     KC_HOME,        KC_NO,          LCTL(LSFT(KC_TAB)),KC_MS_BTN3,     LCTL(KC_TAB),   LGUI(KC_Z),                                     KC_GRAVE,       KC_EXLM,        KC_LCBR,        KC_RCBR,        KC_HASH,        KC_TRANSPARENT, 
-    KC_END,         KC_CAPS,        KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     KC_F11,                                         KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
+    KC_END,         KC_NO,          KC_MS_BTN2,     DRAG_SCROLL,    KC_MS_BTN1,     KC_F11,                                         KC_TILD,        KC_CIRC,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_TRANSPARENT, 
     KC_EQUAL,       KC_ESCAPE,      LGUI(KC_W),     DUAL_FUNC_0,    DUAL_FUNC_1,    LGUI(KC_V),                                     KC_AT,          DUAL_FUNC_2,    MT(MOD_RALT, KC_LBRC),MT(MOD_RCTL, KC_RBRC),KC_AMPR,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_NO,                                          KC_LEFT_SHIFT,  LT(4, KC_SPACE)
   ),
